@@ -2,6 +2,7 @@ format = """
 $username\
 $directory\
 $git_branch\
+$git_commit\
 $git_status\
 $fill\
 $c\
@@ -53,10 +54,17 @@ format = "[](fg:overlay)[ $symbol $branch ]($style)[](fg:overlay) "
 style = "bg:overlay fg:foam"
 symbol = ""
 
+[git_commit]
+disabled = false
+tag_disabled = false
+only_detached = true
+format = "[](fg:overlay)[ $hash$tag ]($style)[](fg:overlay) "
+style = "bg:overlay fg:foam"
+
 [git_status]
 disabled = false
 style = "bg:overlay fg:love"
-format = '[](fg:overlay)([$all_status$ahead_behind]($style))[](fg:overlay) '
+format = '[](fg:overlay)([ $all_status$ahead_behind ]($style))[](fg:overlay) '
 up_to_date = '[ ✓ ](bg:overlay fg:iris)'
 untracked = '[?\($count\)](bg:overlay fg:gold)'
 stashed = '[$](bg:overlay fg:iris)'
